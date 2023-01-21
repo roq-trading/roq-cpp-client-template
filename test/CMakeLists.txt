@@ -1,12 +1,12 @@
 set(TARGET_NAME "${PROJECT_NAME}-test")
 
-set(SOURCES main.cpp)
+set(SOURCES simple.cpp main.cpp)
 
 add_executable("${TARGET_NAME}" ${SOURCES})
 
 target_link_libraries(
   "${TARGET_NAME}"
-  PRIVATE ${PROJECT_NAME}
+  PRIVATE "${PROJECT_NAME}-tools"
           roq-logging::roq-logging
           Catch2::Catch2)
 

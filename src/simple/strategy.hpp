@@ -2,20 +2,34 @@
 
 #pragma once
 
-#include "roq/client/event_log_reader.hpp"
+#include "roq/client.hpp"
 
 namespace simple {
 
-struct Processor final : public roq::client::EventLogReader::Handler {
-  static void dispatch(std::string_view const &path);
+struct Strategy final : public roq::client::Handler {
+  explicit Strategy(roq::client::Dispatcher &);
+
+  Strategy(Strategy &&) = default;
+  Strategy(Strategy const &) = delete;
 
  protected:
-  Processor() = default;
+  void operator()(roq::Event<roq::Timer> const &) override;
+  void operator()(roq::Event<roq::Connected> const &) override;
+  void operator()(roq::Event<roq::Disconnected> const &) override;
+  void operator()(roq::Event<roq::DownloadBegin> const &) override;
+  void operator()(roq::Event<roq::DownloadEnd> const &) override;
+  void operator()(roq::Event<roq::GatewayStatus> const &) override;
+  void operator()(roq::Event<roq::ReferenceData> const &) override;
+  void operator()(roq::Event<roq::MarketStatus> const &) override;
+  void operator()(roq::Event<roq::MarketByPriceUpdate> const &) override;
+  void operator()(roq::Event<roq::OrderAck> const &) override;
+  void operator()(roq::Event<roq::OrderUpdate> const &) override;
+  void operator()(roq::Event<roq::TradeUpdate> const &) override;
+  void operator()(roq::Event<roq::PositionUpdate> const &) override;
+  void operator()(roq::Event<roq::FundsUpdate> const &) override;
 
-  void operator()(roq::Event<roq::GatewayStatus> const &) override {}
-  void operator()(roq::Event<roq::ReferenceData> const &) override {}
-  void operator()(roq::Event<roq::MarketStatus> const &) override {}
-  void operator()(roq::Event<roq::TopOfBook> const &) override {}
+ private:
+  roq::client::Dispatcher &dispatcher_;
 };
 
 }  // namespace simple

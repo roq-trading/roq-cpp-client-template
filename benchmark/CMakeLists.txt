@@ -1,11 +1,11 @@
 set(TARGET_NAME "${PROJECT_NAME}-benchmark")
 
-set(SOURCES main.cpp)
+set(SOURCES simple.cpp main.cpp)
 
 add_executable("${TARGET_NAME}" ${SOURCES})
 
 target_link_libraries(
-  "${TARGET_NAME}" PRIVATE ${PROJECT_NAME} roq-logging::roq-logging benchmark::benchmark)
+  "${TARGET_NAME}" PRIVATE "${PROJECT_NAME}-tools" benchmark::benchmark)
 
 target_compile_features("${TARGET_NAME}" PUBLIC cxx_std_20)
 
