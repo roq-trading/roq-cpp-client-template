@@ -2,7 +2,6 @@
 
 #pragma once
 
-namespace strategy {
 namespace tools {
 
 struct Simple final {
@@ -10,4 +9,3 @@ struct Simple final {
 };
 
 }  // namespace tools
-}  // namespace strategy

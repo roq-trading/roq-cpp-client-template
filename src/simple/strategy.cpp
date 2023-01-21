@@ -4,6 +4,8 @@
 
 #include "roq/logging.hpp"
 
+#include "tools/simple.hpp"
+
 #include "simple/flags/flags.hpp"
 
 using namespace std::literals;
@@ -21,15 +23,20 @@ void Strategy::operator()(roq::Event<roq::Timer> const &event) {
 }
 
 void Strategy::operator()(roq::Event<roq::Connected> const &) {
+  // note!
+  //   Always logged (no verbosity level specified)
+  roq::log::info("1+2={}"sv, tools::Simple::add(1, 2));
 }
 
 void Strategy::operator()(roq::Event<roq::Disconnected> const &) {
 }
 
 void Strategy::operator()(roq::Event<roq::DownloadBegin> const &) {
+  roq::log::warn("*** DOWNLOAD NOW IN PROGRESS ***"sv);
 }
 
 void Strategy::operator()(roq::Event<roq::DownloadEnd> const &) {
+  roq::log::warn<0>("*** DOWNLOAD HAS COMPLETED ***"sv);
 }
 
 void Strategy::operator()(roq::Event<roq::GatewayStatus> const &) {

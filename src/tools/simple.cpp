@@ -2,7 +2,6 @@
 
 #include "tools/simple.hpp"
 
-namespace strategy {
 namespace tools {
 
 int Simple::add(int a, int b) {
@@ -10,4 +9,3 @@ int Simple::add(int a, int b) {
 }
 
 }  // namespace tools
-}  // namespace strategy

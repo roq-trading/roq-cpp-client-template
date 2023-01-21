@@ -4,11 +4,11 @@
 
 #include "tools/simple.hpp"
 
-using namespace strategy;
+using namespace tools;
 
 void BM_tools_Simple_add(benchmark::State &state) {
   for (auto _ : state) {
-    benchmark::DoNotOptimize(tools::Simple::add(1, 2));
+    benchmark::DoNotOptimize(Simple::add(1, 2));
   }
 }
 

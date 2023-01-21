@@ -4,8 +4,8 @@
 
 #include "tools/simple.hpp"
 
-using namespace strategy;
+using namespace tools;
 
 TEST_CASE("add", "[simple]") {
-  CHECK(tools::Simple::add(1, 2) == 3);
+  CHECK(Simple::add(1, 2) == 3);
 }

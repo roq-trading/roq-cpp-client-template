@@ -109,6 +109,8 @@ esac
 echo -e "\033[1;34mInstall toolchain...\033[0m"
 
 "$CONDA_DIR/bin/conda" install -y \
+  benchmark \
+  catch2 \
   clangdev \
   cmake \
   jinja2 \
