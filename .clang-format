@@ -1,0 +1,25 @@
+BasedOnStyle: Google
+
+AlignAfterOpenBracket: AlwaysBreak
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Attach
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+ColumnLimit: 120
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+DerivePointerAlignment: false
+ExperimentalAutoDetectBinPacking: false
+IncludeBlocks: Preserve
+IndentCaseLabels: true
+PointerAlignment: Right
+QualifierAlignment: Right
+Standard: c++20
+
+# --- undecided ---
+# IncludeBlocks: Regroup
