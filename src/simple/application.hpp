@@ -3,17 +3,18 @@
 #pragma once
 
 #include <span>
+#include <string_view>
 
-#include "roq/tool.hpp"
+#include "roq/service.hpp"
 
 namespace simple {
 
-class Application final : public roq::Tool {
- public:
-  using roq::Tool::Tool;
+struct Application final : public roq::Service {
+  using Service::Service;
 
  protected:
   int main_helper(std::span<std::string_view> const &args);
+
   int main(int argc, char **argv) override;
 };
 
