@@ -22,8 +22,14 @@ source opt/conda/bin/activate
 conda install -y --channel https://roq-trading.com/conda/stable roq-client 
 ```
 
-## Building
+## Building the Project
 
 ```bash
 cmake . && make -j4
+```
+
+## Building a Conda Package
+
+```bash
+scripts/build_conda_package.sh stable
 ```
