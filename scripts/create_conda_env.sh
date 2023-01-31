@@ -113,6 +113,7 @@ echo -e "\033[1;34mInstall toolchain...\033[0m"
   catch2 \
   clangdev \
   cmake \
+  conda-build \
   jinja2 \
   make \
   pkg-config
