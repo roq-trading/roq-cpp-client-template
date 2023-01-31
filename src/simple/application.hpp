@@ -7,15 +7,20 @@
 
 #include "roq/service.hpp"
 
+#include "simple/config.hpp"
+
 namespace simple {
 
 struct Application final : public roq::Service {
   using Service::Service;
 
  protected:
+  int main(int argc, char **argv) override;
+
   int main_helper(std::span<std::string_view> const &args);
 
-  int main(int argc, char **argv) override;
+  void simulate(Config const &, std::span<std::string_view> const &connections);
+  void live(Config const &, std::span<std::string_view> const &connections);
 };
 
 }  // namespace simple

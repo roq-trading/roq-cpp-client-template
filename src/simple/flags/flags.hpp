@@ -8,6 +8,7 @@ namespace simple {
 namespace flags {
 
 struct Flags final {
+  static bool simulation();
   static std::string_view accounts();
   static std::string_view exchange();
   static std::string_view symbols();

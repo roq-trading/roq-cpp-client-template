@@ -5,6 +5,12 @@
 #include <absl/flags/flag.h>
 
 ABSL_FLAG(  //
+    bool,
+    simulation,
+    false,
+    "simulation mode?");
+
+ABSL_FLAG(  //
     std::string,
     accounts,
     "A1",
@@ -31,23 +37,28 @@ ABSL_FLAG(  //
 namespace simple {
 namespace flags {
 
+bool Flags::simulation() {
+  static bool const result = absl::GetFlag(FLAGS_simulation);
+  return result;
+}
+
 std::string_view Flags::accounts() {
-  static const std::string result = absl::GetFlag(FLAGS_accounts);
+  static std::string const result = absl::GetFlag(FLAGS_accounts);
   return result;
 }
 
 std::string_view Flags::exchange() {
-  static const std::string result = absl::GetFlag(FLAGS_exchange);
+  static std::string const result = absl::GetFlag(FLAGS_exchange);
   return result;
 }
 
 std::string_view Flags::symbols() {
-  static const std::string result = absl::GetFlag(FLAGS_symbols);
+  static std::string const result = absl::GetFlag(FLAGS_symbols);
   return result;
 }
 
 std::string_view Flags::currencies() {
-  static const std::string result = absl::GetFlag(FLAGS_currencies);
+  static std::string const result = absl::GetFlag(FLAGS_currencies);
   return result;
 }
 
