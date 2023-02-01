@@ -21,7 +21,8 @@ The project includes
 
 ## Prerequisites
 
-> Use `stable` for (the approx. monthly) release build and `unstable` for the more regularly updated development builds.
+> Use `stable` for (the approx. monthly) release build.
+> Use `unstable` for the more regularly updated development builds.
 
 ### Create environment (Miniforge)
 
@@ -41,7 +42,7 @@ source opt/conda/bin/activate
 cmake . && make -j4
 ```
 
-## Building your conda package
+## Building your own conda package
 
 ```bash
 scripts/build_conda_package.sh stable
