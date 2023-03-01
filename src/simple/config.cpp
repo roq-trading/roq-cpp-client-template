@@ -11,7 +11,7 @@ using flags::Flags;
 void Config::dispatch(Handler &handler) const {
   // settings
   handler(roq::client::Settings{
-      .order_cancel_policy = roq::OrderCancelPolicy::MANAGED_ORDERS,
+      .order_cancel_policy = roq::OrderCancelPolicy::BY_ACCOUNT,
       .order_management = {},
   });
   // accounts
