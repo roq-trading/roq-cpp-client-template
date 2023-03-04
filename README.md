@@ -38,6 +38,8 @@ source opt/conda/bin/activate
 
 ## Build the project
 
+> Sometimes you may have to delete CMakeCache.txt if CMake has already cached an incorrect configuration.
+
 ```bash
 cmake . && make -j4
 ```
