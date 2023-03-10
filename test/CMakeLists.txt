@@ -4,8 +4,9 @@ set(SOURCES simple.cpp main.cpp)
 
 add_executable("${TARGET_NAME}" ${SOURCES})
 
-target_link_libraries("${TARGET_NAME}" PRIVATE "${PROJECT_NAME}-tools" roq-logging::roq-logging
-                                               Catch2::Catch2)
+target_link_libraries(
+  "${TARGET_NAME}" PRIVATE "${PROJECT_NAME}-tools" roq-client::roq-client roq-logging::roq-logging
+                           Catch2::Catch2 ${RT_LIBRARIES})
 
 target_compile_features("${TARGET_NAME}" PUBLIC cxx_std_20)
 

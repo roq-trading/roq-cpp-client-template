@@ -17,6 +17,12 @@ find_package(roq-api REQUIRED)
 find_package(roq-client REQUIRED)
 find_package(roq-logging REQUIRED)
 
+if(UNIX AND NOT APPLE)
+  set(RT_LIBRARIES "rt")
+else()
+  set(RT_LIBRARIES)
+endif()
+
 include_directories("${CMAKE_SOURCE_DIR}/src")
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
