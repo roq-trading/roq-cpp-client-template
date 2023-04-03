@@ -2,6 +2,8 @@
 
 #include "simple/flags/flags.hpp"
 
+#include <string>
+
 #include <absl/flags/flag.h>
 
 ABSL_FLAG(  //
