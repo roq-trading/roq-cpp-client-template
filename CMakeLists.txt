@@ -9,6 +9,8 @@ endif()
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
+set(CMAKE_CXX_STANDARD 20)
+
 include(GNUInstallDirs)
 
 find_package(absl REQUIRED)
