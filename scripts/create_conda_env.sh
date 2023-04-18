@@ -66,8 +66,11 @@ case "$ARCH" in
     (>&2 echo -e "\033[1;31mERROR: Unknown architecture.\033[0m") && exit 1
 esac
 
+CONDA_FLAGS="--freeze-installed"
+
 echo "CONDA_ARCH=$CONDA_ARCH"
 echo "CONDA_PKG_EXT=$CONDA_PKG_EXT"
+echo "CONDA_FLAGS=$CONDA_FLAGS"
 
 KERNEL="$(uname -s)"
 
@@ -117,40 +120,32 @@ echo -e "\033[1;34mInstall compiler...\033[0m"
 
 case "$KERNEL" in
   Linux*)
-    "$CONDA_DIR/bin/conda" install -y "gxx_linux-$CONDA_PKG_EXT>=12"
+    "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "gxx_linux-$CONDA_PKG_EXT>=12"
     ;;
   Darwin*)
-    "$CONDA_DIR/bin/conda" install -y "clang_osx-$CONDA_PKG_EXT>=15"
+    "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "clang_osx-$CONDA_PKG_EXT>=15"
     ;;
 esac
 
-echo -e "\033[1;34mWORKAROUND\033[0m"
-
-"$CONDA_DIR/bin/conda" install -y 'conda==22.11.1'
-
 echo -e "\033[1;34mInstall toolchain...\033[0m"
 
-"$CONDA_DIR/bin/conda" install -y \
-  clangdev \
-  cmake \
+"$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" \
+  'clangdev>=15' \
+  'cmake>=3.25' \
   conda-build \
   make \
   pkg-config
 
 echo -e "\033[1;34mInstall dependencies...\033[0m"
 
-"$CONDA_DIR/bin/conda" install -y \
+"$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" \
   benchmark \
-  catch2 \
+  'catch2>=3.3' \
   jinja2
-
-echo -e "\033[1;34mWORKAROUND\033[0m"
-
-"$CONDA_DIR/bin/conda" install -y 'conda==22.11.1'
 
 echo -e "\033[1;34mInstall dependencies from $BUILD...\033[0m"
 
-"$CONDA_DIR/bin/conda" install -y --channel "https://roq-trading.com/conda/$BUILD" \
+"$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" --channel "https://roq-trading.com/conda/$BUILD" \
   roq-client \
   roq-tools
 
