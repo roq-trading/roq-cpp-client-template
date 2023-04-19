@@ -6,7 +6,7 @@ source:
   git_url: ..
 
 build:
-  skip: True  # [win]
+  skip: true  # [not unix]
 
 requirements:
   build:
