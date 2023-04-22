@@ -123,14 +123,14 @@ case "$KERNEL" in
     "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "gxx_linux-$CONDA_PKG_EXT>=12"
     ;;
   Darwin*)
-    "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "clang_osx-$CONDA_PKG_EXT>=15"
+    "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "clang_osx-$CONDA_PKG_EXT>=16"
     ;;
 esac
 
 echo -e "\033[1;34mInstall toolchain...\033[0m"
 
 "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" \
-  'clangdev>=15' \
+  'clangdev>=16' \
   'cmake>=3.25' \
   conda-build \
   make \
