@@ -1,5 +1,5 @@
 ```bash
-conda install -y conda-build
+mamba install -y conda-build
 ```
 
 ```bash
