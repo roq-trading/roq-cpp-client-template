@@ -18,9 +18,13 @@ case "$TARGET" in
     ;;
 esac
 
+echo -e "\033[1;34mInstall boa...\033[0m"
+
+mamba install -y boa
+
 echo -e "\033[1;34mBuild...\033[0m"
 
-conda build --channel "https://roq-trading.com/conda/$TARGET" conda/
+conda mambabuild --channel "https://roq-trading.com/conda/$TARGET" conda/
 
 echo -e "\033[1;34mDone!\033[0m"
-echo -e "\033[1;34mYou can find the package in $CONDA_PREFIX/conda-bld'.\033[0m"
+echo -e "\033[1;34mYou can find the package(s) in $CONDA_PREFIX/conda-bld'.\033[0m"
