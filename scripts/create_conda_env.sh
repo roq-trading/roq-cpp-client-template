@@ -66,11 +66,8 @@ case "$ARCH" in
     (>&2 echo -e "\033[1;31mERROR: Unknown architecture.\033[0m") && exit 1
 esac
 
-CONDA_FLAGS="--freeze-installed"
-
 echo "CONDA_ARCH=$CONDA_ARCH"
 echo "CONDA_PKG_EXT=$CONDA_PKG_EXT"
-echo "CONDA_FLAGS=$CONDA_FLAGS"
 
 KERNEL="$(uname -s)"
 
@@ -114,22 +111,22 @@ fi
 
 echo -e "\033[1;34mInstall conda...\033[0m"
 
-bash "$OPT_DIR/$CONDA_INSTALLER" -b -p "$CONDA_DIR" -u
+bash "$OPT_DIR/$CONDA_INSTALLER" -b -p "$CONDA_DIR"
 
 echo -e "\033[1;34mInstall compiler...\033[0m"
 
 case "$KERNEL" in
   Linux*)
-    "$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" "gxx_linux-$CONDA_PKG_EXT>=12"
+    "$CONDA_DIR/bin/mamba" install -y "gxx_linux-$CONDA_PKG_EXT>=12"
     ;;
   Darwin*)
-    "$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" "clang_osx-$CONDA_PKG_EXT>=16"
+    "$CONDA_DIR/bin/mamba" install -y "clang_osx-$CONDA_PKG_EXT>=16"
     ;;
 esac
 
 echo -e "\033[1;34mInstall toolchain...\033[0m"
 
-"$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" \
+"$CONDA_DIR/bin/mamba" install -y \
   'clangdev>=16' \
   'cmake>=3.25' \
   conda-build \
@@ -138,14 +135,14 @@ echo -e "\033[1;34mInstall toolchain...\033[0m"
 
 echo -e "\033[1;34mInstall dependencies...\033[0m"
 
-"$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" \
+"$CONDA_DIR/bin/mamba" install -y \
   benchmark \
   'catch2>=3.3' \
   jinja2
 
 echo -e "\033[1;34mInstall dependencies from $BUILD...\033[0m"
 
-"$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" --channel "https://roq-trading.com/conda/$BUILD" \
+"$CONDA_DIR/bin/mamba" install -y --channel "https://roq-trading.com/conda/$BUILD" \
   roq-client \
   roq-tools
 
