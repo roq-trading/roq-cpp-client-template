@@ -88,7 +88,7 @@ esac
 
 echo "CONDA_OS=$CONDA_OS"
 
-CONDA_INSTALLER="Miniforge3-$CONDA_OS-$CONDA_ARCH.sh"
+CONDA_INSTALLER="Mambaforge-$CONDA_OS-$CONDA_ARCH.sh"
 
 echo "CONDA_INSTALLER=$CONDA_INSTALLER"
 
@@ -120,16 +120,16 @@ echo -e "\033[1;34mInstall compiler...\033[0m"
 
 case "$KERNEL" in
   Linux*)
-    "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "gxx_linux-$CONDA_PKG_EXT>=12"
+    "$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" "gxx_linux-$CONDA_PKG_EXT>=12"
     ;;
   Darwin*)
-    "$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" "clang_osx-$CONDA_PKG_EXT>=16"
+    "$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" "clang_osx-$CONDA_PKG_EXT>=16"
     ;;
 esac
 
 echo -e "\033[1;34mInstall toolchain...\033[0m"
 
-"$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" \
+"$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" \
   'clangdev>=16' \
   'cmake>=3.25' \
   conda-build \
@@ -138,14 +138,14 @@ echo -e "\033[1;34mInstall toolchain...\033[0m"
 
 echo -e "\033[1;34mInstall dependencies...\033[0m"
 
-"$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" \
+"$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" \
   benchmark \
   'catch2>=3.3' \
   jinja2
 
 echo -e "\033[1;34mInstall dependencies from $BUILD...\033[0m"
 
-"$CONDA_DIR/bin/conda" install -y "$CONDA_FLAGS" --channel "https://roq-trading.com/conda/$BUILD" \
+"$CONDA_DIR/bin/mamba" install -y "$CONDA_FLAGS" --channel "https://roq-trading.com/conda/$BUILD" \
   roq-client \
   roq-tools
 
