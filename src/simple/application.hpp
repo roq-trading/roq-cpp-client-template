@@ -7,12 +7,15 @@
 
 #include "roq/service.hpp"
 
+// note! the following are your implementations
+
 #include "simple/config.hpp"
+#include "simple/strategy.hpp"
 
 namespace simple {
 
 struct Application final : public roq::Service {
-  using Service::Service;
+  using Service::Service;  // inherit constructors
 
  protected:
   int main(int argc, char **argv) override;
@@ -21,6 +24,9 @@ struct Application final : public roq::Service {
 
   void simulate(Config const &, std::span<std::string_view> const &connections);
   void live(Config const &, std::span<std::string_view> const &connections);
+
+ private:
+  using value_type = Strategy;  // note!
 };
 
 }  // namespace simple

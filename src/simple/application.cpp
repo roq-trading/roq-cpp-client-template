@@ -6,10 +6,8 @@
 #include <vector>
 
 #include "roq/client.hpp"
-#include "roq/exceptions.hpp"
 
 #include "simple/flags/flags.hpp"
-#include "simple/strategy.hpp"
 
 using namespace std::chrono_literals;
 using namespace std::literals;
@@ -36,13 +34,14 @@ int Application::main(int argc, char **argv) {
 
 int Application::main_helper(std::span<std::string_view> const &args) {
   assert(!std::empty(args));
-  // note! change this if you need to connect to more gateways
-  if (std::size(args) == 1)
-    roq::log::fatal("Expected arguments"sv);
-  if (std::size(args) != 2)
-    roq::log::fatal("Expected exactly one argument"sv);
+  if (std::size(args) == 1) {
+    roq::log::warn("You must provide at least one argument!"sv);
+    roq::log::warn("  For simulation: paths to event-logs (the .roq files created by gateways)"sv);
+    roq::log::warn("  For live trading: paths to unix sockets (the .sock files created by gateways)"sv);
+    roq::log::fatal("Unexpected"sv);
+  }
   Config config;
-  auto connections = args.subspan(1);
+  auto connections = args.subspan(1);  // note! drop program name
   if (flags::Flags::simulation()) {
     simulate(config, connections);
   } else {
@@ -59,17 +58,17 @@ void Application::simulate(Config const &config, std::span<std::string_view> con
   auto create_matcher = [](auto &dispatcher) {
     return roq::client::detail::SimulationFactory::create_matcher(dispatcher, MATCHER);
   };
-  roq::client::Simulator::Factory factory{
+  auto factory = roq::client::Simulator::Factory{
       .create_generator = create_generator,
       .create_matcher = create_matcher,
       .market_data_latency = MARKET_DATA_LATENCY,
       .order_management_latency = ORDER_MANAGEMENT_LATENCY,
   };
-  roq::client::Simulator{config, factory, *collector}.dispatch<Strategy>();
+  roq::client::Simulator{config, factory, *collector}.dispatch<value_type>();
 }
 
 void Application::live(Config const &config, std::span<std::string_view> const &connections) {
-  roq::client::Trader{config, connections}.dispatch<Strategy>();
+  roq::client::Trader{config, connections}.dispatch<value_type>();
 }
 
 }  // namespace simple
