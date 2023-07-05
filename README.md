@@ -36,6 +36,12 @@ scripts/create_conda_env.sh stable debug
 source opt/conda/bin/activate
 ```
 
+## Initialize sub-projects
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Build the project
 
 > Sometimes you may have to delete CMakeCache.txt if CMake has already cached an incorrect configuration.
