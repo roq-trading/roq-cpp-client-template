@@ -33,7 +33,7 @@ void Strategy::operator()(roq::Event<roq::Disconnected> const &) {
 
 void Strategy::operator()(roq::Event<roq::DownloadBegin> const &event) {
   auto &[message_info, download_begin] = event;
-  roq::log::warn(R"(*** DOWNLOAD NOW IN PROGRESS *** (account="{}")"sv, download_begin.account);
+  roq::log::warn(R"(*** DOWNLOAD NOW IN PROGRESS *** (account="{}"))"sv, download_begin.account);
   // note!
   //   You must not send any requests during a download!
 }
@@ -41,7 +41,7 @@ void Strategy::operator()(roq::Event<roq::DownloadBegin> const &event) {
 void Strategy::operator()(roq::Event<roq::DownloadEnd> const &event) {
   auto &[message_info, download_end] = event;
   roq::log::warn<0>(
-      R"(*** DOWNLOAD HAS COMPLETED *** (account="{}", max_order_id={})"sv,
+      R"(*** DOWNLOAD HAS COMPLETED *** (account="{}", max_order_id={}))"sv,
       download_end.account,
       download_end.max_order_id);
 }
