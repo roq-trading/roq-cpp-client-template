@@ -24,7 +24,13 @@ The project includes
 > Use `stable` for (the approx. monthly) release build.
 > Use `unstable` for the more regularly updated development builds.
 
-### Create environment (Miniforge)
+### Initialize sub-modules
+
+```bash
+git submodule update --init --recursive
+```
+
+### Create environment (Mambaforge)
 
 ```bash
 scripts/create_conda_env.sh stable debug
