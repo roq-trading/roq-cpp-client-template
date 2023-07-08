@@ -2,11 +2,10 @@
 
 #include "simple/config.hpp"
 
-#include "simple/flags/flags.hpp"
-
 namespace simple {
 
-using flags::Flags;
+Config::Config(Settings const &settings) : settings_{settings} {
+}
 
 void Config::dispatch(Handler &handler) const {
   // settings
@@ -16,16 +15,16 @@ void Config::dispatch(Handler &handler) const {
   });
   // accounts
   handler(roq::client::Account{
-      .regex = Flags::accounts(),
+      .regex = settings_.accounts,
   });
   // symbols
   handler(roq::client::Symbol{
-      .regex = Flags::symbols(),
-      .exchange = Flags::exchange(),
+      .regex = settings_.symbols,
+      .exchange = settings_.exchange,
   });
   // currencies
   handler(roq::client::Symbol{
-      .regex = Flags::currencies(),
+      .regex = settings_.currencies,
       .exchange = {},
   });
 }

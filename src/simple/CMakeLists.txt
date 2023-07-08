@@ -6,6 +6,8 @@ set(SOURCES application.cpp config.cpp strategy.cpp main.cpp)
 
 add_executable(${TARGET_NAME} ${SOURCES})
 
+add_dependencies(${TARGET_NAME} ${TARGET_NAME}-flags-autogen-headers)
+
 target_link_libraries(
   ${TARGET_NAME}
   PRIVATE ${TARGET_NAME}-flags

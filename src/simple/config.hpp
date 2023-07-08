@@ -4,16 +4,21 @@
 
 #include "roq/client/config.hpp"
 
+#include "simple/settings.hpp"
+
 namespace simple {
 
 struct Config final : public roq::client::Config {
-  Config() = default;
+  explicit Config(Settings const &);
 
   Config(Config &&) = default;
   Config(Config const &) = delete;
 
  protected:
   void dispatch(Handler &) const override;
+
+ private:
+  Settings const &settings_;
 };
 
 }  // namespace simple

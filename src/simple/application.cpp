@@ -7,7 +7,7 @@
 
 #include "roq/client.hpp"
 
-#include "simple/flags/flags.hpp"
+#include "simple/settings.hpp"
 
 using namespace std::chrono_literals;
 using namespace std::literals;
@@ -40,9 +40,10 @@ int Application::main_helper(std::span<std::string_view> const &args) {
     roq::log::warn("  For live trading: paths to unix sockets (the .sock files created by gateways)"sv);
     roq::log::fatal("Unexpected"sv);
   }
-  Config config;
+  Settings settings;
+  Config config{settings};
   auto connections = args.subspan(1);  // note! drop program name
-  if (flags::Flags::simulation()) {
+  if (settings.simulation) {
     simulate(config, connections);
   } else {
     live(config, connections);
