@@ -6,6 +6,8 @@
 
 namespace simple {
 
-struct Settings final : public flags::Flags {};
+struct Settings final : public flags::Flags {
+  Settings();
+};
 
 }  // namespace simple
