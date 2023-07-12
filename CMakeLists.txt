@@ -33,6 +33,7 @@ find_package(absl REQUIRED)
 find_package(fmt REQUIRED)
 find_package(roq-api REQUIRED)
 find_package(roq-client REQUIRED)
+find_package(roq-flags REQUIRED)
 find_package(roq-logging REQUIRED)
 
 if(UNIX AND NOT APPLE)

@@ -15,6 +15,7 @@ requirements:
     - make
   host:
     - roq-client
+    - roq-flags
     - abseil-cpp
     - catch2
 
