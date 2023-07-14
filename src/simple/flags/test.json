@@ -1,0 +1,14 @@
+{
+  "name": "Test",
+  "type": "flags",
+  "prefix": "test_",
+  "values": [
+    {
+      "name": "update_freq",
+      "type": "std::chrono::milliseconds",
+      "validator": "roq::flags::validators::TimePeriod",
+      "default": "10ms",
+      "description": "demo prefix and validator"
+    }
+  ]
+}
