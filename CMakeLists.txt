@@ -39,7 +39,7 @@ find_package(roq-flags REQUIRED)
 find_package(roq-logging REQUIRED)
 
 if(UNIX AND NOT APPLE)
-  set(RT_LIBRARIES "rt")
+  set(RT_LIBRARIES rt)
 else()
   set(RT_LIBRARIES)
 endif()
