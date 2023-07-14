@@ -58,12 +58,12 @@ void Application::simulation(
       .market_data_latency = MARKET_DATA_LATENCY,
       .order_management_latency = ORDER_MANAGEMENT_LATENCY,
   };
-  roq::client::Simulator{settings, config, factory, *collector}.dispatch<value_type>();
+  roq::client::Simulator{settings, config, factory, *collector}.dispatch<value_type>(settings);
 }
 
 void Application::trading(
     Settings const &settings, Config const &config, std::span<std::string_view const> const &params) {
-  roq::client::Trader{settings, config, params}.dispatch<value_type>();
+  roq::client::Trader{settings, config, params}.dispatch<value_type>(settings);
 }
 
 }  // namespace simple

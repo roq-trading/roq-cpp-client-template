@@ -12,7 +12,7 @@ using namespace std::literals;
 
 namespace simple {
 
-Strategy::Strategy(roq::client::Dispatcher &dispatcher) : dispatcher_{dispatcher} {
+Strategy::Strategy(roq::client::Dispatcher &dispatcher, Settings const &) : dispatcher_{dispatcher} {
 }
 
 void Strategy::operator()(roq::Event<roq::Timer> const &event) {

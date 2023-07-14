@@ -4,10 +4,12 @@
 
 #include "roq/client.hpp"
 
+#include "simple/settings.hpp"
+
 namespace simple {
 
 struct Strategy final : public roq::client::Handler {
-  explicit Strategy(roq::client::Dispatcher &);
+  Strategy(roq::client::Dispatcher &, Settings const &);
 
   Strategy(Strategy &&) = default;
   Strategy(Strategy const &) = delete;
