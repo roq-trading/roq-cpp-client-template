@@ -12,7 +12,8 @@ using namespace std::literals;
 
 namespace simple {
 
-Strategy::Strategy(roq::client::Dispatcher &dispatcher, Settings const &) : dispatcher_{dispatcher} {
+Strategy::Strategy(roq::client::Dispatcher &dispatcher, Settings const &settings)
+    : dispatcher_{dispatcher}, symbols_{settings.symbols}, update_freq_{settings.test.update_freq} {
 }
 
 void Strategy::operator()(roq::Event<roq::Timer> const &event) {

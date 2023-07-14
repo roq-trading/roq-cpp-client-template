@@ -5,7 +5,7 @@
 namespace simple {
 
 Settings::Settings(roq::args::Parser const &args)
-    : roq::client::flags::Settings{args}, flags::Flags{flags::Flags::create()} {
+    : roq::client::flags::Settings{args}, flags::Flags{flags::Flags::create()}, test{flags::Test::create()} {
 }
 
 }  // namespace simple

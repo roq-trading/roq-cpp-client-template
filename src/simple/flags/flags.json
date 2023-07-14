@@ -31,13 +31,6 @@
       "type": "bool",
       "default": false,
       "description": "simulation?"
-    },
-    {
-      "name": "test",
-      "type": "std::chrono::milliseconds",
-      "validator": "roq::flags::validators::TimePeriod",
-      "default": "10ms",
-      "description": "test"
     }
   ]
 }
