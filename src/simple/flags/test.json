@@ -9,6 +9,11 @@
       "validator": "roq::flags::validators::TimePeriod",
       "default": "10ms",
       "description": "demo prefix and validator"
+    },
+    {
+      "name": "some_list",
+      "type": "std::vector<std::string>",
+      "description": "something"
     }
   ]
 }
