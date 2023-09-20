@@ -13,3 +13,9 @@ if(ROQ_BUILD_TYPE STREQUAL "Release")
 endif()
 
 install(TARGETS ${TARGET_NAME})
+
+add_custom_target(
+  benchmark
+  COMMAND ${TARGET_NAME}
+  DEPENDS ${TARGET_NAME}
+  VERBATIM)
