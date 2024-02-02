@@ -14,6 +14,7 @@ target_link_libraries(
           ${PROJECT_NAME}-tools
           roq-client::roq-client
           roq-client::roq-client-flags
+          roq-market::roq-market
           roq-logging::roq-logging
           roq-logging::roq-logging-flags
           roq-flags::roq-flags
