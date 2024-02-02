@@ -14,10 +14,10 @@ requirements:
     - cmake
     - make
   host:
-    - roq-client
-    - roq-flags
     - abseil-cpp
     - catch2
+    - roq-client
+    - roq-flags
 
 about:
   license: BSD-3-Clause
