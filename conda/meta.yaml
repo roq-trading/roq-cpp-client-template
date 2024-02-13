@@ -14,7 +14,7 @@ requirements:
     - cmake
     - make
   host:
-    - libabseil
+    - abseil-cpp
     - catch2
     - roq-client
     - roq-flags
