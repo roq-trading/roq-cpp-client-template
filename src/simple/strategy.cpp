@@ -41,10 +41,7 @@ void Strategy::operator()(roq::Event<roq::DownloadBegin> const &event) {
 
 void Strategy::operator()(roq::Event<roq::DownloadEnd> const &event) {
   auto &[message_info, download_end] = event;
-  roq::log::warn<0>(
-      R"(*** DOWNLOAD HAS COMPLETED *** (account="{}", max_order_id={}))"sv,
-      download_end.account,
-      download_end.max_order_id);
+  roq::log::warn<0>(R"(*** DOWNLOAD HAS COMPLETED *** (account="{}", max_order_id={}))"sv, download_end.account, download_end.max_order_id);
 }
 
 void Strategy::operator()(roq::Event<roq::GatewayStatus> const &) {

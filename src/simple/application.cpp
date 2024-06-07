@@ -43,15 +43,10 @@ int Application::main(roq::args::Parser const &args) {
   return EXIT_SUCCESS;
 }
 
-void Application::simulation(
-    Settings const &settings, Config const &config, std::span<std::string_view const> const &params) {
+void Application::simulation(Settings const &settings, Config const &config, std::span<std::string_view const> const &params) {
   auto collector = roq::client::detail::SimulationFactory::create_collector(SNAPSHOT_FREQUENCY);
-  auto create_generator = [&params](auto source_id) {
-    return roq::client::detail::SimulationFactory::create_generator(params[source_id], source_id);
-  };
-  auto create_matcher = [](auto &dispatcher) {
-    return roq::client::detail::SimulationFactory::create_matcher(dispatcher, MATCHER);
-  };
+  auto create_generator = [&params](auto source_id) { return roq::client::detail::SimulationFactory::create_generator(params[source_id], source_id); };
+  auto create_matcher = [](auto &dispatcher) { return roq::client::detail::SimulationFactory::create_matcher(dispatcher, MATCHER); };
   auto factory = roq::client::Simulator::Factory{
       .create_generator = create_generator,
       .create_matcher = create_matcher,
@@ -61,8 +56,7 @@ void Application::simulation(
   roq::client::Simulator{settings, config, factory, *collector}.dispatch<value_type>(settings);
 }
 
-void Application::trading(
-    Settings const &settings, Config const &config, std::span<std::string_view const> const &params) {
+void Application::trading(Settings const &settings, Config const &config, std::span<std::string_view const> const &params) {
   roq::client::Trader{settings, config, params}.dispatch<value_type>(settings);
 }
 
