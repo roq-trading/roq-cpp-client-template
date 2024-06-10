@@ -13,6 +13,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
+    - roq-autogen
   host:
     - catch2
     - libabseil
