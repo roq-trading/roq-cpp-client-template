@@ -1,36 +1,36 @@
 {
-  "name": "Flags",
+  "name": "simple/flags/Flags",
   "type": "flags",
   "values": [
     {
       "name": "exchange",
-      "type": "std::string",
+      "type": "std/string",
       "required": true,
       "default": "deribit",
       "description": "exchange"
     },
     {
       "name": "symbols",
-      "type": "std::string",
+      "type": "std/string",
       "required": true,
       "default": "BTC-PERPETUAL",
       "description": "symbol (regex)"
     },
     {
       "name": "accounts",
-      "type": "std::string",
+      "type": "std/string",
       "default": "A1",
       "description": "account (regex)"
     },
     {
       "name": "currencies",
-      "type": "std::string",
+      "type": "std/string",
       "default": "BTC|USD",
       "description": "currencies (regex)"
     },
     {
       "name": "simulation",
-      "type": "bool",
+      "type": "std/bool",
       "default": false,
       "description": "simulation?"
     }
