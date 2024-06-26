@@ -1,14 +1,15 @@
-A template project for creating your own strateiges.
+A template project to help you get started with creating your own strategies using Roq's C++ API.
 
 The project includes
 
 * Bare-minimum implementation needed to support strategy development
 
-  * Supports live and simulation.
+  * Live trading
+  * Simulation
 
 * A static library (named `tools`)
 
-  * Allows you to build testable logic separate from the actual strategy.
+  * Allows you to build testable logic separate from the actual strategy
 
 * Test target
 
@@ -17,6 +18,8 @@ The project includes
 * Benchmark target
 
   * Using Google benchmark
+
+* Conda build recipe
 
 
 ## Prerequisites
@@ -30,10 +33,10 @@ The project includes
 git submodule update --init --recursive
 ```
 
-### Create environment (Mambaforge)
+### Create development environment
 
 ```bash
-scripts/create_conda_env.sh unstable debug
+scripts/create_conda_env debug unstable
 ```
 
 ### Activate environment
@@ -48,10 +51,4 @@ source opt/conda/bin/activate dev
 
 ```bash
 cmake . && make -j4
-```
-
-## Building your own conda package
-
-```bash
-scripts/build_conda_package.sh stable
 ```
