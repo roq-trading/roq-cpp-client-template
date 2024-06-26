@@ -13,9 +13,7 @@ requirements:
     - {{ compiler('cxx') }}
     - clangdev
     - cmake
-    - jinja2
     - make
-    - pkg-config
     - roq-autogen
   host:
     - catch2
