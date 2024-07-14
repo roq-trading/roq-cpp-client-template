@@ -1,5 +1,5 @@
 package:
-  name: roq-strategy-template
+  name: roq-cpp-client-template
   version: {{ GIT_DESCRIBE_TAG }}
 
 source:
@@ -32,4 +32,4 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: Strategy (a template project)
+  summary: C++ Client (a template project)
