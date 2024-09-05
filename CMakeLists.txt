@@ -38,6 +38,7 @@ find_package(roq-client REQUIRED)
 find_package(roq-flags REQUIRED)
 find_package(roq-logging REQUIRED)
 find_package(roq-market REQUIRED)
+find_package(magic_enum REQUIRED)
 
 if(UNIX AND NOT APPLE)
   set(RT_LIBRARIES rt)
