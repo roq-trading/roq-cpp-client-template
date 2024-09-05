@@ -40,12 +40,6 @@ find_package(roq-logging REQUIRED)
 find_package(roq-market REQUIRED)
 find_package(magic_enum REQUIRED)
 
-if(UNIX AND NOT APPLE)
-  set(RT_LIBRARIES rt)
-else()
-  set(RT_LIBRARIES)
-endif()
-
 # autogen
 
 find_program(ROQ_AUTOGEN roq-autogen REQUIRED)
