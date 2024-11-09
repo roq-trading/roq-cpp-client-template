@@ -52,3 +52,7 @@ source opt/conda/bin/activate dev
 ```bash
 cmake . && make -j4
 ```
+
+## License
+
+The project is released under the terms of the MIT license.
