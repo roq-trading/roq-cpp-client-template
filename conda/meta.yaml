@@ -20,13 +20,20 @@ requirements:
     - catch2
     - fmt
     - libabseil
+    - roq-algo
     - roq-api
+    - roq-cache
     - roq-client
+    - roq-codec
+    - roq-fix
     - roq-flags
+    - roq-io
     - roq-logging
     - roq-market
     - roq-oss-benchmark
     - roq-oss-magic_enum
+    - roq-oss-unordered_dense
+    - roq-utils
 
 about:
   license: MIT

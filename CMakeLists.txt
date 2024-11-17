@@ -33,12 +33,19 @@ include(GNUInstallDirs)
 
 find_package(absl REQUIRED)
 find_package(fmt REQUIRED)
+find_package(magic_enum REQUIRED)
+find_package(roq-algo REQUIRED)
 find_package(roq-api REQUIRED)
+find_package(roq-cache REQUIRED)
 find_package(roq-client REQUIRED)
+find_package(roq-codec REQUIRED)
+find_package(roq-fix REQUIRED)
 find_package(roq-flags REQUIRED)
+find_package(roq-io REQUIRED)
 find_package(roq-logging REQUIRED)
 find_package(roq-market REQUIRED)
-find_package(magic_enum REQUIRED)
+find_package(roq-utils REQUIRED)
+find_package(unordered_dense REQUIRED)
 
 # autogen
 
