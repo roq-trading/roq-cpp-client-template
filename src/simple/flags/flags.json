@@ -27,12 +27,6 @@
       "type": "std/string",
       "default": "BTC|USD",
       "description": "currencies (regex)"
-    },
-    {
-      "name": "simulation",
-      "type": "std/bool",
-      "default": false,
-      "description": "simulation?"
     }
   ]
 }
