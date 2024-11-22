@@ -1,8 +1,10 @@
 /* Copyright (c) 2017-2025, Hans Erik Thrane */
 
-#include "simple/config.hpp"
+#include "roq/samples/client/config.hpp"
 
-namespace simple {
+namespace roq {
+namespace samples {
+namespace client {
 
 Config::Config(Settings const &settings) : settings_{settings} {
 }
@@ -29,4 +31,6 @@ void Config::dispatch(Handler &handler) const {
   });
 }
 
-}  // namespace simple
+}  // namespace client
+}  // namespace samples
+}  // namespace roq

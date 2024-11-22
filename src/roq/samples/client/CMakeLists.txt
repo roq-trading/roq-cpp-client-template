@@ -1,16 +1,17 @@
-set(TARGET_NAME ${PROJECT_NAME}-simple)
+set(TARGET_NAME ${PROJECT_NAME}-client)
 
 add_subdirectory(flags)
+add_subdirectory(tools)
 
 set(SOURCES application.cpp config.cpp settings.cpp strategy.cpp main.cpp)
 
 add_executable(${TARGET_NAME} ${SOURCES})
 
-add_dependencies(${TARGET_NAME} ${TARGET_NAME}-flags-autogen-headers)
+add_dependencies(${TARGET_NAME} ${PROJECT_NAME}-flags-autogen-headers)
 
 target_link_libraries(
   ${TARGET_NAME}
-  PRIVATE ${TARGET_NAME}-flags
+  PRIVATE ${PROJECT_NAME}-flags
           ${PROJECT_NAME}-tools
           roq-client::roq-client
           roq-client::roq-client-flags

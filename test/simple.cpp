@@ -2,10 +2,10 @@
 
 #include <catch2/catch_test_macros.hpp>
 
-#include "tools/simple.hpp"
+#include "roq/samples/client/tools/simple.hpp"
 
-using namespace tools;
+using namespace roq;
 
 TEST_CASE("add", "[simple]") {
-  CHECK(Simple::add(1, 2) == 3);
+  CHECK(samples::client::tools::Simple::add(1, 2) == 3);
 }

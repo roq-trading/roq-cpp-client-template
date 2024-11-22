@@ -2,6 +2,9 @@
 
 #pragma once
 
+namespace roq {
+namespace samples {
+namespace client {
 namespace tools {
 
 struct Simple final {
@@ -9,3 +12,6 @@ struct Simple final {
 };
 
 }  // namespace tools
+}  // namespace client
+}  // namespace samples
+}  // namespace roq

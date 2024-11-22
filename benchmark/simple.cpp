@@ -2,13 +2,13 @@
 
 #include <benchmark/benchmark.h>
 
-#include "tools/simple.hpp"
+#include "roq/samples/client/tools/simple.hpp"
 
-using namespace tools;
+using namespace roq;
 
 void BM_tools_Simple_add(benchmark::State &state) {
   for (auto _ : state) {
-    benchmark::DoNotOptimize(Simple::add(1, 2));
+    benchmark::DoNotOptimize(samples::client::tools::Simple::add(1, 2));
   }
 }
 

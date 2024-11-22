@@ -6,7 +6,7 @@
 
 #include "roq/logging/flags/settings.hpp"
 
-#include "simple/application.hpp"
+#include "roq/samples/client/application.hpp"
 
 using namespace std::literals;
 
@@ -14,7 +14,7 @@ using namespace std::literals;
 
 namespace {
 auto const INFO = roq::Service::Info{
-    .description = "Simple Strategy"sv,
+    .description = "Client Template"sv,
     .package_name = ROQ_PACKAGE_NAME,
     .build_version = ROQ_VERSION,
 };
@@ -25,5 +25,5 @@ auto const INFO = roq::Service::Info{
 int main(int argc, char **argv) {
   roq::flags::Args args{argc, argv, INFO.description, INFO.build_version};
   roq::logging::flags::Settings settings{args};
-  return simple::Application{args, settings, INFO}.run();
+  return roq::samples::client::Application{args, settings, INFO}.run();
 }

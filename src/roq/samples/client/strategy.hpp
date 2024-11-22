@@ -4,9 +4,11 @@
 
 #include "roq/client.hpp"
 
-#include "simple/settings.hpp"
+#include "roq/samples/client/settings.hpp"
 
-namespace simple {
+namespace roq {
+namespace samples {
+namespace client {
 
 struct Strategy final : public roq::client::Handler {
   Strategy(roq::client::Dispatcher &, Settings const &);
@@ -37,4 +39,6 @@ struct Strategy final : public roq::client::Handler {
   std::chrono::nanoseconds const update_freq_;
 };
 
-}  // namespace simple
+}  // namespace client
+}  // namespace samples
+}  // namespace roq

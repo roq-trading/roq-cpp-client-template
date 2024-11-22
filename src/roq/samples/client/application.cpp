@@ -1,18 +1,20 @@
 /* Copyright (c) 2017-2025, Hans Erik Thrane */
 
-#include "simple/application.hpp"
+#include "roq/samples/client/application.hpp"
 
 #include <cassert>
 #include <vector>
 
 #include "roq/client.hpp"
 
-#include "simple/settings.hpp"
+#include "roq/samples/client/settings.hpp"
 
 using namespace std::literals;
 using namespace std::chrono_literals;  // NOLINT
 
-namespace simple {
+namespace roq {
+namespace samples {
+namespace client {
 
 // === IMPLEMENTATION ===
 
@@ -30,4 +32,6 @@ int Application::main(roq::args::Parser const &args) {
   return EXIT_SUCCESS;
 }
 
-}  // namespace simple
+}  // namespace client
+}  // namespace samples
+}  // namespace roq

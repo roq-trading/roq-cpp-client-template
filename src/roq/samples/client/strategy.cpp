@@ -1,16 +1,18 @@
 /* Copyright (c) 2017-2025, Hans Erik Thrane */
 
-#include "simple/strategy.hpp"
+#include "roq/samples/client/strategy.hpp"
 
 #include "roq/logging.hpp"
 
 #include "tools/simple.hpp"
 
-#include "simple/flags/flags.hpp"
+#include "roq/samples/client/flags/flags.hpp"
 
 using namespace std::literals;
 
-namespace simple {
+namespace roq {
+namespace samples {
+namespace client {
 
 Strategy::Strategy(roq::client::Dispatcher &dispatcher, Settings const &settings)
     : dispatcher_{dispatcher}, symbols_{settings.symbols}, update_freq_{settings.test.update_freq} {
@@ -71,4 +73,6 @@ void Strategy::operator()(roq::Event<roq::PositionUpdate> const &) {
 void Strategy::operator()(roq::Event<roq::FundsUpdate> const &) {
 }
 
-}  // namespace simple
+}  // namespace client
+}  // namespace samples
+}  // namespace roq
