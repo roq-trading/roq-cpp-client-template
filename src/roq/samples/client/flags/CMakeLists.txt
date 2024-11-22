@@ -32,4 +32,4 @@ add_library(${TARGET_NAME} OBJECT ${AUTOGEN_SOURCES})
 
 add_dependencies(${TARGET_NAME} ${TARGET_NAME}-autogen-headers)
 
-target_link_libraries(${TARGET_NAME} absl::flags)
+target_link_libraries(${TARGET_NAME} PRIVATE absl::flags)
