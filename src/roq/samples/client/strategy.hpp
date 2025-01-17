@@ -18,6 +18,7 @@ struct Strategy final : public roq::client::Handler {
 
  protected:
   void operator()(roq::Event<roq::Timer> const &) override;
+  void operator()(roq::Event<roq::Control> const &) override;
   void operator()(roq::Event<roq::Connected> const &) override;
   void operator()(roq::Event<roq::Disconnected> const &) override;
   void operator()(roq::Event<roq::DownloadBegin> const &) override;
