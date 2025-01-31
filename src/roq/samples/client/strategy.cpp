@@ -25,24 +25,6 @@ void Strategy::operator()(roq::Event<roq::Timer> const &event) {
   roq::log::info<5>("event={}"sv, event);
 }
 
-void Strategy::operator()(Event<Control> const &event) {
-  // note!
-  //   You may want to support external enable/disable
-  auto &[message_info, control] = event;
-  switch (control.action) {
-    using enum Action;
-    case UNDEFINED:
-      assert(false);
-      break;
-    case ENABLE:
-      dispatcher_(State::ENABLED);
-      break;
-    case DISABLE:
-      dispatcher_(State::DISABLED);
-      break;
-  }
-}
-
 void Strategy::operator()(roq::Event<roq::Connected> const &) {
   // note!
   //   Always logged (no verbosity level specified)
@@ -50,6 +32,18 @@ void Strategy::operator()(roq::Event<roq::Connected> const &) {
 }
 
 void Strategy::operator()(roq::Event<roq::Disconnected> const &) {
+}
+
+bool Strategy::operator()(Event<ServiceUpdate> const &) {
+  return true;  // note! true means change has been accepted
+}
+
+bool Strategy::operator()(Event<StrategyUpdate> const &) {
+  return true;  // note! true means change has been accepted
+}
+
+bool Strategy::operator()(Event<LegsUpdate> const &) {
+  return true;  // note! true means change has been accepted
 }
 
 void Strategy::operator()(roq::Event<roq::DownloadBegin> const &event) {
