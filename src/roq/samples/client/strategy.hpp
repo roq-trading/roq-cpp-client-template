@@ -20,9 +20,7 @@ struct Strategy final : public roq::client::Handler {
   void operator()(roq::Event<roq::Timer> const &) override;
   void operator()(roq::Event<roq::Connected> const &) override;
   void operator()(roq::Event<roq::Disconnected> const &) override;
-  bool operator()(roq::Event<roq::ServiceUpdate> const &) override;
-  bool operator()(roq::Event<roq::StrategyUpdate> const &) override;
-  bool operator()(roq::Event<roq::LegsUpdate> const &) override;
+  void operator()(roq::Event<roq::Control> const &) override;
   void operator()(roq::Event<roq::DownloadBegin> const &) override;
   void operator()(roq::Event<roq::DownloadEnd> const &) override;
   void operator()(roq::Event<roq::GatewayStatus> const &) override;

@@ -34,16 +34,7 @@ void Strategy::operator()(roq::Event<roq::Connected> const &) {
 void Strategy::operator()(roq::Event<roq::Disconnected> const &) {
 }
 
-bool Strategy::operator()(Event<ServiceUpdate> const &) {
-  return true;  // note! true means change has been accepted
-}
-
-bool Strategy::operator()(Event<StrategyUpdate> const &) {
-  return true;  // note! true means change has been accepted
-}
-
-bool Strategy::operator()(Event<LegsUpdate> const &) {
-  return true;  // note! true means change has been accepted
+void Strategy::operator()(Event<Control> const &) {
 }
 
 void Strategy::operator()(roq::Event<roq::DownloadBegin> const &event) {
