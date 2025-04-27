@@ -2,8 +2,7 @@
 
 #include "roq/samples/client/application.hpp"
 
-#include <cassert>
-#include <vector>
+#include "roq/logging.hpp"
 
 #include "roq/client.hpp"
 
