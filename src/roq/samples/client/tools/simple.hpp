@@ -8,7 +8,7 @@ namespace client {
 namespace tools {
 
 struct Simple final {
-  static int add(int a, int b);
+  static int add(int lhs, int rhs);
 };
 
 }  // namespace tools

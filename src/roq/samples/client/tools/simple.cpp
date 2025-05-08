@@ -7,8 +7,8 @@ namespace samples {
 namespace client {
 namespace tools {
 
-int Simple::add(int a, int b) {
-  return a + b;
+int Simple::add(int lhs, int rhs) {
+  return lhs + rhs;
 }
 
 }  // namespace tools
