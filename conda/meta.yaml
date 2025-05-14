@@ -20,6 +20,7 @@ requirements:
     - catch2
     - fmt
     - libabseil
+    - magic_enum
     - roq-algo
     - roq-api
     - roq-cache
@@ -30,7 +31,6 @@ requirements:
     - roq-logging
     - roq-market
     - roq-oss-benchmark
-    - roq-oss-magic_enum
     - roq-oss-unordered_dense
     - roq-utils
 
