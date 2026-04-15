@@ -17,6 +17,7 @@ requirements:
     - make
     - roq-autogen
   host:
+    - benchmark
     - catch2
     - fmt
     - libabseil
@@ -30,9 +31,8 @@ requirements:
     - roq-io
     - roq-logging
     - roq-market
-    - benchmark
-    - roq-oss-unordered_dense
     - roq-utils
+    - unordered_dense
 
 about:
   license: MIT
